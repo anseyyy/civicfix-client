@@ -103,6 +103,7 @@ export const allAPI = {
   auth: authAPI,
   issue: issueAPI,
   admin: adminAPI,
+  contact: contactAPI,
 };
 
 // Default export for convenience
