@@ -5,7 +5,7 @@ import { useToast } from '../context/ToastContext';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import PremiumCard from '../components/common/PremiumCard';
-import PremiumCard from '../components/common/PremiumCard';
+
 import PremiumButton from '../components/common/PremiumButton';
 import SERVER_URL from '../services/serverURL';
 
