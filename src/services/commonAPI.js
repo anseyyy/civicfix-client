@@ -4,8 +4,7 @@ import SERVER_URL from "./serverURL.js";
 // Create axios instance with base configuration
 const api = axios.create({
   baseURL: SERVER_URL,
-  timeout: 10000,
-  headers: {
+  timeout: 60000, // Increased to 60s for Render free tier wake-up headers: {
     "Content-Type": "application/json",
   },
 });

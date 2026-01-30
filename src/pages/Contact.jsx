@@ -30,7 +30,8 @@ function Contact() {
             setFormData({ name: '', email: '', subject: '', message: '' });
         } catch (err) {
             console.error("Failed to send message", err);
-            showToast(err.response?.data?.error || 'Failed to send message. Please try again.', 'error');
+            // Show server error, or network/timeout error (err.message)
+            showToast(err.response?.data?.error || err.message || 'Failed to send message.', 'error');
         } finally {
             setLoading(false);
         }
