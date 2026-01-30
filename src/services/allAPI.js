@@ -31,7 +31,7 @@ export const authAPI = {
 
 // Admin APIs
 export const adminAPI = {
-  getUsers: async () => await commonAPI.get('/allusers'),
+  getUsers: async () => await commonAPI.get('/users'),
   archive: {
     // Future archive endpoints
   },
