@@ -128,7 +128,7 @@ function AdminReports() {
                                             </td>
                                             <td>{getStatusBadge(report.status)}</td>
                                             <td className="text-muted small">
-                                                {new Date(report.createdAt).toLocaleDateString()}
+                                                {report.createdAt ? new Date(report.createdAt).toLocaleDateString() : 'N/A'}
                                             </td>
                                             <td className="pe-4 text-end">
                                                 <div className="d-flex justify-content-end gap-2">

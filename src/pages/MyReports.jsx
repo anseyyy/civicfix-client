@@ -136,7 +136,7 @@ function MyReports() {
 
                                         <div className="d-flex align-items-center text-muted small mb-3">
                                             <i className="fa-regular fa-calendar-alt me-2 text-success"></i>
-                                            {new Date(issue.createdAt).toLocaleDateString()}
+                                            {issue.createdAt ? new Date(issue.createdAt).toLocaleDateString() : 'N/A'}
                                         </div>
 
                                         {issue.imageUrl && (
@@ -185,7 +185,9 @@ function MyReports() {
                             )}
                             <div className="d-flex justify-content-between align-items-center mb-3">
                                 {getStatusBadge(selectedIssue.status)}
-                                <small className="text-muted">{new Date(selectedIssue.createdAt).toLocaleString()}</small>
+                                <small className="text-muted">
+                                    {selectedIssue.createdAt ? new Date(selectedIssue.createdAt).toLocaleString() : 'N/A'}
+                                </small>
                             </div>
                             <p className="lead">{selectedIssue.description}</p>
                             <hr />
