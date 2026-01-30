@@ -6,6 +6,7 @@ import PremiumCard from '../components/common/PremiumCard';
 import PremiumButton from '../components/common/PremiumButton';
 import { allAPI } from '../services/allAPI';
 import { useToast } from '../context/ToastContext';
+import SERVER_URL from '../services/serverURL';
 
 function MyReports() {
     const [issues, setIssues] = useState([]);
@@ -142,7 +143,7 @@ function MyReports() {
                                         {issue.imageUrl && (
                                             <div className="rounded overflow-hidden mb-3 shadow-sm" style={{ height: '180px' }}>
                                                 <img
-                                                    src={`http://localhost:3000/${issue.imageUrl}`}
+                                                    src={`${SERVER_URL}/${issue.imageUrl}`}
                                                     alt="Issue"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
@@ -177,7 +178,7 @@ function MyReports() {
                         <Modal.Body>
                             {selectedIssue.imageUrl && (
                                 <img
-                                    src={`http://localhost:3000/${selectedIssue.imageUrl}`}
+                                    src={`${SERVER_URL}/${selectedIssue.imageUrl}`}
                                     alt={selectedIssue.title}
                                     className="img-fluid rounded mb-3 w-100"
                                     style={{ maxHeight: '400px', objectFit: 'cover' }}
