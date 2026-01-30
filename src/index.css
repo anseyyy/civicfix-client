@@ -1,0 +1,41 @@
+:root {
+  --primary-green: #0f5132;
+  --primary-light: #198754;
+  --secondary-green: #d1e7dd;
+  --accent-gold: #ffd700;
+  --dark-overlay: rgba(0, 0, 0, 0.7);
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --text-dark: #212529;
+  --text-light: #f8f9fa;
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+.sticky_navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    position : fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+
