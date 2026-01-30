@@ -121,6 +121,24 @@ function Login() {
             <div className="text-center mt-4 text-muted">
               Don't have an account? <Link to="/register" className="text-success fw-bold text-decoration-none">Create one</Link>
             </div>
+
+            <div className="mt-4 p-3 bg-light rounded shadow-sm border small text-start">
+              <h6 className="fw-bold text-dark border-bottom pb-2 mb-2"><i className="fa-solid fa-key me-2 text-warning"></i>Demo Credentials</h6>
+              <div className="d-flex flex-column gap-2">
+                <div className="d-flex justify-content-between align-items-center">
+                  <span className="badge bg-success bg-opacity-10 text-success">User</span>
+                  <code className="text-muted">jhon@gmail.com / jhon123</code>
+                </div>
+                <div className="d-flex justify-content-between align-items-center">
+                  <span className="badge bg-primary bg-opacity-10 text-primary">Worker</span>
+                  <code className="text-muted">abhi@gmail.com / abhi123</code>
+                </div>
+                <div className="d-flex justify-content-between align-items-center">
+                  <span className="badge bg-danger bg-opacity-10 text-danger">Admin</span>
+                  <code className="text-muted">ansil@gmail.com / ansil123</code>
+                </div>
+              </div>
+            </div>
           </form>
         </PremiumCard>
       </div>
