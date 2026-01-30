@@ -50,7 +50,7 @@ export const contactAPI = {
 export const issueAPI = {
   // Submit a new issue report
   submitReport: async (reportData) => {
-    const { title, description, category, location, images, urgency, userId } =
+    const { title, description, category, location, pincode, images, urgency, userId } =
       reportData;
 
     // Create FormData for file uploads
@@ -59,14 +59,14 @@ export const issueAPI = {
     formData.append("description", description);
     formData.append("category", category);
     formData.append("location", location);
+    formData.append("pincode", pincode || ""); // Add pincode
     formData.append("urgency", urgency);
     formData.append("userId", userId);
 
-    // Append images if they exist
-    if (images && images.length > 0) {
-      images.forEach((image) => {
-        formData.append("images", image);
-      });
+    // Append image if it exists (single file as per backend upload.single('image'))
+    if (images) {
+      // If images is passed as a single file object (which it is from ReportIssue.jsx)
+      formData.append("image", images);
     }
 
     return await commonAPI.upload("/report", formData);

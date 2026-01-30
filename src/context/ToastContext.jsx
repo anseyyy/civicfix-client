@@ -43,13 +43,14 @@ export const ToastProvider = ({ children }) => {
         <ToastContext.Provider value={{ showToast }}>
             {children}
             <ToastContainer
-                position="middle-center"
+                position="top-center"
                 className="p-3"
                 style={{
                     zIndex: 9999,
-                    top: '50%',
+                    position: 'fixed',
+                    top: '20px',
                     left: '50%',
-                    transform: 'translate(-50%, -50%)'
+                    transform: 'translateX(-50%)' // Center horizontally
                 }}
             >
                 {toasts.map(toast => (
