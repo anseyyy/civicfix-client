@@ -146,6 +146,10 @@ function MyReports() {
                                                     src={`${SERVER_URL}/${issue.imageUrl}`}
                                                     alt="Issue"
                                                     className="w-100 h-100 object-fit-cover"
+                                                    onError={(e) => {
+                                                        e.target.onerror = null;
+                                                        e.target.src = 'https://placehold.co/600x400?text=No+Image';
+                                                    }}
                                                 />
                                             </div>
                                         )}
@@ -182,6 +186,10 @@ function MyReports() {
                                     alt={selectedIssue.title}
                                     className="img-fluid rounded mb-3 w-100"
                                     style={{ maxHeight: '400px', objectFit: 'cover' }}
+                                    onError={(e) => {
+                                        e.target.onerror = null;
+                                        e.target.src = 'https://placehold.co/600x400?text=No+Image';
+                                    }}
                                 />
                             )}
                             <div className="d-flex justify-content-between align-items-center mb-3">

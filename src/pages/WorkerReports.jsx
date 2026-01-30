@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Badge, Spinner, Table, Form } from 'react-bootstrap';
+import { Badge, Spinner, Table, Form, Modal, Button } from 'react-bootstrap';
 import { allAPI } from '../services/allAPI';
 import { useToast } from '../context/ToastContext';
 import { motion } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
 import PremiumCard from '../components/common/PremiumCard';
 import PremiumButton from '../components/common/PremiumButton';
+import SERVER_URL from '../services/serverURL';
 
 function WorkerReports() {
     const location = useLocation();
@@ -13,6 +14,7 @@ function WorkerReports() {
     const [loading, setLoading] = useState(true);
     const [filter, setFilter] = useState(location.state?.filter || 'pending');
     const [statusUpdates, setStatusUpdates] = useState({});
+    const [selectedIssue, setSelectedIssue] = useState(null);
     const { showToast } = useToast();
     const navigate = useNavigate();
 
@@ -110,6 +112,7 @@ function WorkerReports() {
                                 <thead className="bg-success text-white">
                                     <tr>
                                         <th className="py-3 ps-4">Task</th>
+                                        <th className="py-3">Image</th>
                                         <th className="py-3">Location</th>
                                         <th className="py-3">Status</th>
                                         <th className="py-3">Date</th>
@@ -132,6 +135,19 @@ function WorkerReports() {
                                                 <div className="text-muted small text-truncate" style={{ maxWidth: '250px' }}>
                                                     {report.description}
                                                 </div>
+                                            </td>
+                                            <td>
+                                                {report.imageUrl ? (
+                                                    <button
+                                                        className="btn btn-sm btn-outline-secondary rounded-circle"
+                                                        onClick={() => setSelectedIssue(report)}
+                                                        title="View Image"
+                                                    >
+                                                        <i className="fa-solid fa-image"></i>
+                                                    </button>
+                                                ) : (
+                                                    <span className="text-muted small">-</span>
+                                                )}
                                             </td>
                                             <td>
                                                 <div>{report.location}</div>
@@ -195,6 +211,31 @@ function WorkerReports() {
                         <i className="fa-solid fa-arrow-left me-2"></i> Back to Dashboard
                     </PremiumButton>
                 </div>
+
+                {/* Image Modal */}
+                <Modal show={!!selectedIssue} onHide={() => setSelectedIssue(null)} centered>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Work Order Image</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body className="text-center">
+                        {selectedIssue && (
+                            <img
+                                src={`${SERVER_URL}/${selectedIssue.imageUrl}`}
+                                alt="Issue"
+                                className="img-fluid rounded"
+                                onError={(e) => {
+                                    e.target.onerror = null;
+                                    e.target.src = 'https://placehold.co/600x400?text=No+Image';
+                                }}
+                            />
+                        )}
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={() => setSelectedIssue(null)}>
+                            Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
         </div>
     );
