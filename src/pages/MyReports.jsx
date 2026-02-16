@@ -143,7 +143,7 @@ function MyReports() {
                                         {issue.imageUrl && (
                                             <div className="rounded overflow-hidden mb-3 shadow-sm" style={{ height: '180px' }}>
                                                 <img
-                                                    src={`${SERVER_URL}/${issue.imageUrl}`}
+                                                    src={`${SERVER_URL}/${issue.imageUrl.replace(/\\/g, '/')}`}
                                                     alt="Issue"
                                                     className="w-100 h-100 object-fit-cover"
                                                     onError={(e) => {
@@ -182,7 +182,7 @@ function MyReports() {
                         <Modal.Body>
                             {selectedIssue.imageUrl && (
                                 <img
-                                    src={`${SERVER_URL}/${selectedIssue.imageUrl}`}
+                                    src={`${SERVER_URL}/${selectedIssue.imageUrl.replace(/\\/g, '/')}`}
                                     alt={selectedIssue.title}
                                     className="img-fluid rounded mb-3 w-100"
                                     style={{ maxHeight: '400px', objectFit: 'cover' }}

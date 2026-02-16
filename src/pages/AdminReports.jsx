@@ -206,7 +206,7 @@ function AdminReports() {
                     <Modal.Body className="text-center">
                         {selectedIssue && (
                             <img
-                                src={`${SERVER_URL}/${selectedIssue.imageUrl}`}
+                                src={`${SERVER_URL}/${selectedIssue.imageUrl.replace(/\\/g, '/')}`}
                                 alt="Issue"
                                 className="img-fluid rounded"
                                 onError={(e) => {
